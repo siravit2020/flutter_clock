@@ -14,8 +14,8 @@ class _TimeInHourAndMinuteState extends State<TimeInHourAndMinute> {
   void initState() {
     Timer.periodic(
       Duration(seconds: 1),
-          (timer) {
-        if(_timeOfDay.minute != TimeOfDay.now().minute){
+      (timer) {
+        if (_timeOfDay.minute != TimeOfDay.now().minute) {
           setState(() {
             _timeOfDay = TimeOfDay.now();
           });
@@ -30,14 +30,14 @@ class _TimeInHourAndMinuteState extends State<TimeInHourAndMinute> {
     String _period = _timeOfDay.period == DayPeriod.am ? "AM" : "PM";
     String h = "";
     String m = "";
-    if(_timeOfDay.hourOfPeriod < 10){
-      h = "0"+(_timeOfDay.hourOfPeriod.toString());
-    }
-    else h = _timeOfDay.hourOfPeriod.toString();
-    if(_timeOfDay.minute < 10){
-      m = (_timeOfDay.minute.toString()) + "0";
-    }
-    else m = _timeOfDay.minute.toString();
+    if (_timeOfDay.hourOfPeriod < 10) {
+      h = "0${(_timeOfDay.hourOfPeriod.toString())}";
+    } else
+      h = _timeOfDay.hourOfPeriod.toString();
+    if (_timeOfDay.minute < 10) {
+      m = "0${(_timeOfDay.minute.toString())}";
+    } else
+      m = _timeOfDay.minute.toString();
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -46,7 +46,6 @@ class _TimeInHourAndMinuteState extends State<TimeInHourAndMinute> {
           '$h:$m',
           style: Theme.of(context).textTheme.headline1,
           textAlign: TextAlign.center,
-
         ),
         SizedBox(
           width: 5,
